@@ -13,14 +13,6 @@ class Auth extends MY_Controller
 		$this->lang->load('auth');
 		$this->load->library('email');
 		$this->session->set_flashdata('segment', explode('/', $this->uri->uri_string()));
-
-		// Include the google api php libraries
-		// $this->load->model('google_oauth_model'); // modular model
-		$this->load->config('auth/google_config'); // modular config
-		$this->load->config('auth/email'); // modular email
-
-		include_once APPPATH . "libraries/Google/Google_Client.php";
-		include_once APPPATH . "libraries/Google/contrib/Google_Oauth2Service.php";
 	}
 
 	private function output_json($data)
